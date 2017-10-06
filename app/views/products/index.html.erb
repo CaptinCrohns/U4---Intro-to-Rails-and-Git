@@ -14,21 +14,29 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+        <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
+
         <td><%= product.stock_quantity %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
+
   </tbody>
 </table>
 <br>
+<p>Total:<%= @product_count  %></p>
+<p>Averge Price: <%= @average_price %></p>
+<p>Total Quantity:<%= @quantity_sum  %></p>
 <%= link_to 'New Product', new_product_path %>
+
+
 <% 100.times do %>
 <p>Chunky Bacon</p>
 <% end %>
